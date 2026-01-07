@@ -1,0 +1,2 @@
+# scratch
+algorithms in C
