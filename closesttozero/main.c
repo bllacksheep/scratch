@@ -1,19 +1,25 @@
+/*
+ * O(n) time complexity
+ * O(1) space complexity
+ * */
+
 #include<stdio.h>
 
-static inline int abs2(int);
+static inline unsigned abs2(int);
 unsigned find_closest_number(int*, size_t);
 
-static inline int
+// unsigned above -INT_MAX UB overflow
+static inline unsigned
 abs2(int x)
 {
-	return x < 0 ? -x : x;
+	return (x < 0) ? -(unsigned)x :(unsigned)x;
 }
 
 unsigned
 find_closest_number(int *nums, size_t n)
 {
-	int x = 0;
-	int closest = abs2(nums[0]);
+	unsigned x = 0;
+	unsigned closest = abs2(nums[0]);
 	for (int i = 0; i < n; i++) {
 		x = abs2(nums[i]);
 		if (x < closest && x != 0)
