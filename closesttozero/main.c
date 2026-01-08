@@ -8,7 +8,7 @@
 static inline unsigned abs2(int);
 unsigned find_closest_number(int*, size_t);
 
-// unsigned above -INT_MAX UB overflow
+// unsigned: avoid -INT_MAX UB overflow
 static inline unsigned
 abs2(int x)
 {
